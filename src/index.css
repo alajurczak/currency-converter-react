@@ -8,12 +8,7 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: top;
-  min-height: 800px;
-  margin: 20px auto;
-  padding: 0 20px;
+  background-image: url("./bgimages.jpg");
   background-position: center;
   background-size: cover;
 }
