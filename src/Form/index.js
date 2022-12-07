@@ -14,6 +14,7 @@ const Form = () => {
       currency,
       targetAmount: amount / findCurrency().rate,
       rate: findCurrency().rate,
+      sourceAmount: +amount,
     });
   };
 
@@ -64,7 +65,7 @@ const Form = () => {
         <p>
           <button className="form__button">Oblicz</button>
         </p>
-        <Result result={result}/>
+        <Result result={result} />
         <p className="form__additionalInformation">*Pole obowiąznowe do wypełnienia</p>
         <p className="form__additionalInformation">Obliczenia wykonano dla kursu walut z dnia 3.11.2022.</p>
       </fieldset>

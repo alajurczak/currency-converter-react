@@ -35,10 +35,6 @@
     padding: 5px;
 }
 
-.form__result {
-    padding: 10px 0;
-}
-
 .form__button {
     padding: 10px;
     width: 100%;
@@ -60,4 +56,6 @@
 .form__additionalInformation {
     margin: 5px;
     font-style: italic;
+    color: rgb(110, 108, 108);
+    text-align: center;
 }
