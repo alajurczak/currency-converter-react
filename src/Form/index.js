@@ -66,7 +66,7 @@ const Form = () => {
           <button className="form__button">Oblicz</button>
         </p>
         <Result result={result} />
-        <p className="form__additionalInformation">*Pole obowiąznowe do wypełnienia</p>
+        <p className="form__additionalInformation">*Pole obowiązkowe do wypełnienia</p>
         <p className="form__additionalInformation">Obliczenia wykonano dla kursu walut z dnia 3.11.2022.</p>
       </fieldset>
     </form>
