@@ -1,5 +1,5 @@
 # Currency-converter
-## DEMO: https://alajurczak.github.io/currency-converter/
+## DEMO: https://alajurczak.github.io/currency-converter-react/
 
 ![Page animation](https://raw.githubusercontent.com/alajurczak/currency-converter/d3f3e885abfa7f9a7f6865b2645524cef19bae74/images/Animation.gif)
 ## Used technologies:
