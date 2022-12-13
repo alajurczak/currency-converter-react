@@ -70,7 +70,7 @@ const Form = () => {
         <p className="form__additionalInformation">Obliczenia wykonano dla kursu walut z dnia 3.11.2022.</p>
       </fieldset>
     </form>
-  )
-}
+  );
+};
 
 export default Form;
