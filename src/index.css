@@ -11,4 +11,10 @@ body {
   background-image: url("./bgimages.jpg");
   background-position: center;
   background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  flex-basis: 800px;
+
 }
