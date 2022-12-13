@@ -1,5 +1,5 @@
 .date {
     text-align: right;
-    margin-bottom: 20px;
-    margin-right: 20px;
+    justify-self: flex-end;
+    margin: 0 10px 10px;
 };
