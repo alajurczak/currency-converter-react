@@ -1,7 +1,7 @@
 # Currency-converter
 ## DEMO: https://alajurczak.github.io/currency-converter-react/
 
-![Page animation](https://raw.githubusercontent.com/alajurczak/currency-converter/d3f3e885abfa7f9a7f6865b2645524cef19bae74/images/Animation.gif)
+![Page animation](https://raw.githubusercontent.com/alajurczak/currency-converter-react/95855edcde5e62102ab0de8a6c79de3a45ba1a57/public/CurrencyAnimation.gif)
 ## Used technologies:
 - HTML
 - CSS
@@ -11,7 +11,7 @@
 - Create React App
 
 ## Description
-This site presents a simle currency calculator. It calculates PLN to EUR/CHF/GBP/USD.
+This site presents a simle currency calculator. It calculates PLN to EUR/CHF/GBP/USD and displays current date and time.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
