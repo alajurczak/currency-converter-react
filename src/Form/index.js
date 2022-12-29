@@ -1,7 +1,7 @@
-import "./style.css";
 import { currencies } from "../Currencies";
 import { useState } from "react";
 import { Result } from "./Result";
+import { Button, Field, LabelText, Legend, Fieldset, StyledForm, AdditionalInformation } from "./styled";
 
 const Form = () => {
   const [amount, setAmount] = useState("");
@@ -24,16 +24,15 @@ const Form = () => {
   };
 
   return (
-    <form className="form" onSubmit={onFormSubmit}>
-      <fieldset className="form__fieldset">
-        <legend className="form__legend">Kalkulator walut</legend>
+    <StyledForm onSubmit={onFormSubmit}>
+      <Fieldset>
+        <Legend>Kalkulator walut</Legend>
         <p>
           <label>
-            <span className="form__labelText">
+            <LabelText>
               Kwota w zł: *
-            </span>
-            <input
-              className="form__field"
+            </LabelText>
+            <Field
               placeholder="Kwota w zł"
               type="number" min="0"
               step={0.01}
@@ -45,11 +44,11 @@ const Form = () => {
         </p>
         <p>
           <label>
-            <span className="form__labelText">
+            <LabelText>
               Wybierz walutę: *
-            </span>
-            <select
-              className="form__field"
+            </LabelText>
+            <Field
+              as="select"
               name="currency"
               value={currency}
               onChange={({ target }) => setCurrency(target.value)}
@@ -59,17 +58,17 @@ const Form = () => {
                   {currency.name}
                 </option>
               ))};
-            </select>
+            </Field>
           </label>
         </p>
         <p>
-          <button className="form__button">Oblicz</button>
+          <Button>Oblicz</Button>
         </p>
         <Result result={result} />
-        <p className="form__additionalInformation">*Pole obowiązkowe do wypełnienia</p>
-        <p className="form__additionalInformation">Obliczenia wykonano dla kursu walut z dnia 3.11.2022.</p>
-      </fieldset>
-    </form>
+        <AdditionalInformation>*Pole obowiązkowe do wypełnienia</AdditionalInformation>
+        <AdditionalInformation>Obliczenia wykonano dla kursu walut z dnia 3.11.2022.</AdditionalInformation>
+      </Fieldset>
+    </StyledForm>
   );
 };
 

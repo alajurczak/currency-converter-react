@@ -1,41 +1,42 @@
-.form {
-    flex-basis: 550px;
-}
+import styled from "styled-components";
 
-.form__fieldset {
+export const StyledForm = styled.form`
+    flex-basis: 550px;
+`;
+
+export const Fieldset = styled.fieldset`
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
     margin: 20px 0;
     background-color: white;
-}
+`;
 
-.form__legend {
+export const Legend = styled.legend`
     background-color: cornflowerblue;
     border-radius: 5px;
     padding: 10px;
     color: white;
     font-weight: bold;
-}
+`;
 
-.form__labelText {
+export const LabelText = styled.span`
     width: 100%;
     max-width: 200px;
     display: inline-block;
     margin: 5px 5px 5px 0;
     padding: 5px 5px 5px 0;
+`;
 
-}
-
-.form__field {
+export const Field = styled.input`
     width: 100%;
     max-width: 250px;
     border: 1px solid #bbb;
     border-radius: 5px;
     padding: 5px;
-}
+`;
 
-.form__button {
+export const Button = styled.button`
     padding: 10px;
     width: 100%;
     background-color: cornflowerblue;
@@ -43,19 +44,20 @@
     border-radius: 5px;
     color: white;
     font-weight: bold;
-}
+    transition: background 0.3s;
 
-.form__button:hover {
-    background-color: rgb(59, 120, 233);
-}
+    &:hover {
+        background-color: rgb(59, 120, 233);
+    };
 
-.form__button:active {
-    background-color: rgb(17, 77, 189);
-}
+    &:active {
+        background-color: rgb(17, 77, 189);
+    };
+`;
 
-.form__additionalInformation {
+export const AdditionalInformation = styled.p`
     margin: 5px;
     font-style: italic;
     color: rgb(110, 108, 108);
     text-align: center;
-}
+`;
