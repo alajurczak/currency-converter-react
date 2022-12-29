@@ -1,4 +1,3 @@
-import "./style.css";
 import { StyledContainer } from "./styled";
 
 const Container = ({children}) => (
