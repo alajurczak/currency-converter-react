@@ -1,10 +1,10 @@
-import "./style.css";
+import { StyledResult } from "./styled";
 
 export const Result = ({ result }) => {
     if (result !== "") return (
-        <p className="result">
+        <StyledResult>
             Wynik przeliczenia:
             <strong> {result.sourceAmount} PLN = {(result.targetAmount).toFixed(2)} {result.currency}</strong>
-        </p>
+        </StyledResult>
     )
 };
