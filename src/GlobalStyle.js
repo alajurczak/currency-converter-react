@@ -1,4 +1,8 @@
-html {
+import { createGlobalStyle } from "styled-components";
+import bgimages from "./bgimages.jpg";
+
+export const GlobalStyle = createGlobalStyle`
+    html {
   box-sizing: border-box;
 }
 
@@ -8,7 +12,7 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-image: url("./bgimages.jpg");
+  background-image: url("${bgimages}");
   background-position: center;
   background-size: cover;
   min-height: 800px;
@@ -18,3 +22,4 @@ body {
   max-width: 700px;
 
 }
+`;
