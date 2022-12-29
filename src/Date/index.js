@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./style.css";
+import { StyledDate } from "./styled";
 
 const formattedDate = (newDate) => newDate.toLocaleString(undefined, {
     weekday: "long",
@@ -24,10 +24,10 @@ const CurrentDate = () => {
     }, []);
 
     return (
-        <div className="date">
+        <StyledDate>
             Dzisiaj jest {" "}
             {formattedDate(newDate)}
-        </div>
+        </StyledDate>
     );
 };
 
