@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { StyledDate } from "./styled";
+import { useCurrentDate } from "./useCurrentDate";
 
 const formattedDate = (newDate) => newDate.toLocaleString(undefined, {
     weekday: "long",
@@ -11,17 +11,7 @@ const formattedDate = (newDate) => newDate.toLocaleString(undefined, {
 });
 
 const CurrentDate = () => {
-    const [newDate, setNewDate] = useState(new Date());
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setNewDate(new Date());
-        }, 1000);
-
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, []);
+    const newDate = useCurrentDate();
 
     return (
         <StyledDate>
