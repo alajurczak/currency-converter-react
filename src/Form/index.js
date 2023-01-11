@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Result } from "./Result";
 import { Button, Field, LabelText, Legend, Fieldset, StyledForm, AdditionalInformation } from "./styled";
 
-const Form = () => {
+const Form = ({date}) => {
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState(currencies[0].short);
   const [result, setResult] = useState("");
@@ -66,7 +66,7 @@ const Form = () => {
         </p>
         <Result result={result} />
         <AdditionalInformation>*Pole obowiązkowe do wypełnienia</AdditionalInformation>
-        <AdditionalInformation>Obliczenia wykonano dla kursu walut z dnia 3.11.2022.</AdditionalInformation>
+        <AdditionalInformation>Kurs pobrano z Narodowego Banku Polskiego z dnia: {date}</AdditionalInformation>
       </Fieldset>
     </StyledForm>
   );
