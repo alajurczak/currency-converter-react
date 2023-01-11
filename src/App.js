@@ -3,6 +3,9 @@ import Container from "./Container";
 import CurrentDate from "./Date";
 import { useState, useEffect } from "react";
 
+const LoadingText = "Ładowanie... Pobieram aktualne kursy z Banku Centralnego.";
+const ErrorText = "Upss... Coś poszło nie tak! Sprawdź połączenie z internetem i spróbuj ponownie.";
+
 function App() {
   const [rates, setRates] = useState({});
   const [date, setDate] = useState("");
@@ -12,7 +15,7 @@ function App() {
   const fetchApi = () => {
     fetch("https://api.exchangerate.host/latest?base=PLN")
       .then((response) => {
-        if (response.ok) {
+        if (!response.ok) {
           throw new Error(response.statusText);
         }
         return response;
@@ -26,35 +29,23 @@ function App() {
       .catch(() => setError(true));
   };
   useEffect(() => {
-    setTimeout(fetchApi, 3000);
+    setTimeout(fetchApi, 1000);
   }, []);
 
-  if (loading) {
-    return (
-      <Container>
-        <p>
-          Ładowanie... Pobieram aktualne kursy z Banku Centralnego.
-        </p>
-        <CurrentDate />
-      </Container>
-    )
-  }
-
-  if (error) {
-    return (
-      <Container>
-        <p>
-          Upss... Coś poszło nie tak! Sprawdź połączenie z internetem i spróbuj ponownie.
-        </p>
-        <CurrentDate />
-      </Container>
-    )
-  }
+  const isReady = !error && !loading;
 
   return (
     <Container>
-      <Form date={date} />
-      <CurrentDate />
+      {isReady ? (
+        <>
+          <Form date={date} />
+          <CurrentDate />
+        </>) : (
+        <>
+        {loading && <p>{LoadingText}</p>}
+        {error && <p>{ErrorText}</p>}
+        </>
+      )}
     </Container>
 
   );
