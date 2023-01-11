@@ -12,22 +12,23 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const fetchApi = () => {
-    fetch("https://api.exchangerate.host/latest?base=PLN")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response;
-      })
-      .then((response) => response.json())
-      .then((dataRates) => {
-        setRates(dataRates.rates);
-        setDate(dataRates.date);
-        setLoading(false);
-      })
-      .catch(() => setError(true));
+  const fetchApi = async () => {
+    try {
+      const myResponse = await fetch("https://api.exchangerate.host/latest?base=PLN");
+      if (!myResponse.ok) {
+        throw new Error(myResponse.statusText);
+      }
+      const dataRates = await myResponse.json();
+      setRates(dataRates.rates);
+      setDate(dataRates.date);
+      setLoading(false);
+    }
+    catch (error) {
+      setLoading(false);
+      setError(true);
+    }
   };
+
   useEffect(() => {
     setTimeout(fetchApi, 1000);
   }, []);
@@ -38,12 +39,12 @@ function App() {
     <Container>
       {isReady ? (
         <>
-          <Form date={date} />
+          <Form date={date} rates={rates} />
           <CurrentDate />
         </>) : (
         <>
-        {loading && <p>{LoadingText}</p>}
-        {error && <p>{ErrorText}</p>}
+          {loading && <p>{LoadingText}</p>}
+          {error && <p>{ErrorText}</p>}
         </>
       )}
     </Container>
