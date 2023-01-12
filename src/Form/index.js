@@ -1,26 +1,25 @@
-import { currencies } from "../Currencies";
 import { useState } from "react";
 import { Result } from "./Result";
 import { Button, Field, LabelText, Legend, Fieldset, StyledForm, AdditionalInformation } from "./styled";
 
-const Form = ({date}) => {
+const Form = ({ date, rates }) => {
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState(currencies[0].short);
+  const [currency, setCurrency] = useState();
   const [result, setResult] = useState("");
 
-  const findCurrency = () => currencies.find(({ short }) => short === currency);
-  const calculateResult = () => {
+  const findCurrency = rates[currency];
+  const calculateResult = (amount, currency) => {
     setResult({
       currency,
-      targetAmount: amount / findCurrency().rate,
-      rate: findCurrency().rate,
+      targetAmount: amount * findCurrency,
       sourceAmount: +amount,
     });
   };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    calculateResult();
+    calculateResult(amount, currency);
+    setAmount("");
   };
 
   return (
@@ -53,11 +52,13 @@ const Form = ({date}) => {
               value={currency}
               onChange={({ target }) => setCurrency(target.value)}
             >
-              {currencies.map(currency => (
-                <option key={currency.short} value={currency.short}>
-                  {currency.name}
-                </option>
-              ))};
+              {Object.keys(rates).map((rateKey) => {
+                return (
+                  <option key={rateKey} value={rateKey}>
+                    {rateKey} : {rates[rateKey]}
+                  </option>
+                );
+                })};
             </Field>
           </label>
         </p>

@@ -3,7 +3,7 @@ import Container from "./Container";
 import CurrentDate from "./Date";
 import { useState, useEffect } from "react";
 
-const LoadingText = "Ładowanie... Pobieram aktualne kursy z Banku Centralnego.";
+const LoadingText = "Ładowanie... Pobieram aktualne kursy z Narodowego Banku Polskiego.";
 const ErrorText = "Upss... Coś poszło nie tak! Sprawdź połączenie z internetem i spróbuj ponownie.";
 
 function App() {
