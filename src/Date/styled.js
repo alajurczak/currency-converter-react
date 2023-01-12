@@ -5,5 +5,5 @@ export const StyledDate = styled.div`
     justify-self: flex-end;
     margin: 0 10px 10px;
     font-family: monospace;
-    color: rgb(95, 94, 94);
+    color: ${({theme}) => theme.color.scorpion};
 `;

@@ -9,14 +9,14 @@ export const Fieldset = styled.fieldset`
     padding: 20px;
     border-radius: 5px;
     margin: 20px 0;
-    background-color: white;
+    background-color: ${({ theme }) => theme.color.white};
 `;
 
 export const Legend = styled.legend`
-    background-color: cornflowerblue;
+    background-color: ${({ theme }) => theme.color.cornflowerBlue};
     border-radius: 5px;
     padding: 10px;
-    color: white;
+    color: ${({ theme }) => theme.color.white};
     font-weight: bold;
 `;
 
@@ -39,25 +39,25 @@ export const Field = styled.input`
 export const Button = styled.button`
     padding: 10px;
     width: 100%;
-    background-color: cornflowerblue;
+    background-color: ${({ theme }) => theme.color.cornflowerBlue};
     border: none;
     border-radius: 5px;
-    color: white;
+    color: ${({ theme }) => theme.color.white};
     font-weight: bold;
     transition: background 0.3s;
 
     &:hover {
-        background-color: rgb(59, 120, 233);
+        background-color: ${({ theme }) => theme.color.royalBlue};
     };
 
     &:active {
-        background-color: rgb(17, 77, 189);
+        background-color: ${({ theme }) => theme.color.denim};
     };
 `;
 
 export const AdditionalInformation = styled.p`
     margin: 5px;
     font-style: italic;
-    color: rgb(110, 108, 108);
+    color: ${({ theme }) => theme.color.doveGray};
     text-align: center;
 `;
