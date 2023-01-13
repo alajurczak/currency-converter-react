@@ -2,8 +2,10 @@ import Form from "./Form";
 import Container from "./Container";
 import CurrentDate from "./Date";
 import { useState, useEffect } from "react";
+import { StyledParagraph } from "./Container/styled";
+import { Fieldset, Legend } from "./Form/styled";
 
-const LoadingText = "Ładowanie... Pobieram aktualne kursy z Narodowego Banku Polskiego.";
+const LoadingText = "Pobieram aktualne kursy z Narodowego Banku Polskiego...";
 const ErrorText = "Upss... Coś poszło nie tak! Sprawdź połączenie z internetem i spróbuj ponownie.";
 
 function App() {
@@ -43,8 +45,11 @@ function App() {
           <CurrentDate />
         </>) : (
         <>
-          {loading && <p>{LoadingText}</p>}
-          {error && <p>{ErrorText}</p>}
+          <Fieldset>
+            <Legend>Kalkulator walut</Legend>
+            {loading && <StyledParagraph>{LoadingText}</StyledParagraph>}
+            {error && <StyledParagraph>{ErrorText}</StyledParagraph>}
+          </Fieldset>
         </>
       )}
     </Container>

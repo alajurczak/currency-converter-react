@@ -7,5 +7,5 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledParagraph = styled.p`
-    background-color: ${({theme}) => theme.color.cornflowerBlue};
+    text-align: center;
 `;
