@@ -4,7 +4,7 @@ import { Button, Field, LabelText, Legend, Fieldset, StyledForm, AdditionalInfor
 
 const Form = ({ date, rates }) => {
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState();
+  const [currency, setCurrency] = useState("EUR");
   const [result, setResult] = useState("");
 
   const findCurrency = rates[currency];
