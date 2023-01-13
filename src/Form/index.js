@@ -55,7 +55,7 @@ const Form = ({ date, rates }) => {
               {Object.keys(rates).map((rateKey) => {
                 return (
                   <option key={rateKey} value={rateKey}>
-                    {rateKey} : {rates[rateKey]}
+                    {rateKey}
                   </option>
                 );
                 })};
