@@ -9,9 +9,9 @@ const LoadingText = "Pobieram aktualne kursy z Narodowego Banku Polskiego...";
 const ErrorText = "Upss... Coś poszło nie tak! Sprawdź połączenie z internetem i spróbuj ponownie.";
 
 function App() {
-  const { rates, date, loading, error } = useCurrentRatesData();
+  const { rates, date, status } = useCurrentRatesData();
 
-  const isReady = !error && !loading;
+  const isReady = !status.state === "loading" && !status.state === "error";
 
   return (
     <Container>
@@ -23,9 +23,10 @@ function App() {
         <>
           <Fieldset>
             <Legend>Kalkulator walut</Legend>
-            {loading && <StyledParagraph>{LoadingText}</StyledParagraph>}
-            {error && <StyledParagraph>{ErrorText}</StyledParagraph>}
+            {status.state === "loading" && <StyledParagraph>{LoadingText}</StyledParagraph>}
+            {status.state === "error" && <StyledParagraph>{ErrorText}</StyledParagraph>}
           </Fieldset>
+          <CurrentDate />
         </>
       )}
     </Container>

@@ -3,23 +3,28 @@ import { useState, useEffect } from "react";
 export const useCurrentRatesData = () => {
     const [rates, setRates] = useState({});
     const [date, setDate] = useState("");
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [status, setStatus] = useState({
+        state: "loading"
+    });
 
     const fetchApi = async () => {
         try {
-            const myResponse = await fetch("https://api.exchangerate.host/latest?base=PLN");
-            if (!myResponse.ok) {
-                throw new Error(myResponse.statusText);
+            const response = await fetch("https://api.exchangerate.host/latest?base=PLN");
+
+            if (!response.ok) {
+                throw new Error(response.statusText);
             }
-            const dataRates = await myResponse.json();
-            setRates(dataRates.rates);
-            setDate(dataRates.date);
-            setLoading(false);
+            const { rates, date } = await response.json();
+            setRates({ rates });
+            setDate({ date });
+            setStatus({
+                state: "success"
+            });
         }
         catch (error) {
-            setLoading(false);
-            setError(true);
+            setStatus({
+                state: "error"
+            });
         }
     };
 
@@ -27,5 +32,5 @@ export const useCurrentRatesData = () => {
         setTimeout(fetchApi, 1000);
     }, []);
 
-    return { rates, date, loading, error };
+    return { rates, date, status };
 };

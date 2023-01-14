@@ -58,7 +58,7 @@ const Form = ({ date, rates }) => {
                     {rateKey}
                   </option>
                 );
-                })};
+              })};
             </Field>
           </label>
         </p>
