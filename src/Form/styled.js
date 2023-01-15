@@ -62,6 +62,11 @@ export const AdditionalInformation = styled.p`
     text-align: center;
 `;
 
-export const StyledParagraph = styled.p`
+export const Loading = styled.p`
     text-align: center;
+`;
+
+export const Failure = styled.p`
+    text-align: center;
+    color: ${({theme}) => theme.color.crimson};
 `;

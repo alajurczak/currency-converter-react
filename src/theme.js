@@ -6,5 +6,6 @@ export const theme = {
         denim: "#114dbd",
         doveGray: "#6e6c6c",
         scorpion: "#5f5e5e",
+        crimson: "#DC143C",
     },
 }
