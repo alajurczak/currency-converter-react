@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const useCurrentRatesData = () => {
-    const [rates, setRates] = useState({});
-    const [date, setDate] = useState("");
-    const [status, setStatus] = useState({
+    const [ratesData, setRatesData] = useState({
         state: "loading"
     });
 
@@ -15,14 +13,15 @@ export const useCurrentRatesData = () => {
                 throw new Error(response.statusText);
             }
             const { rates, date } = await response.json();
-            setRates({ rates });
-            setDate({ date });
-            setStatus({
-                state: "success"
+
+            setRatesData({
+                state: "success",
+                rates,
+                date
             });
         }
         catch (error) {
-            setStatus({
+            setRatesData({
                 state: "error"
             });
         }
@@ -32,5 +31,5 @@ export const useCurrentRatesData = () => {
         setTimeout(fetchApi, 1000);
     }, []);
 
-    return { rates, date, status };
+    return ratesData;
 };
