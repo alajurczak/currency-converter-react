@@ -61,3 +61,7 @@ export const AdditionalInformation = styled.p`
     color: ${({ theme }) => theme.color.doveGray};
     text-align: center;
 `;
+
+export const StyledParagraph = styled.p`
+    text-align: center;
+`;

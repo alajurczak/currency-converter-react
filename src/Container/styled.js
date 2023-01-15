@@ -5,7 +5,3 @@ export const StyledContainer = styled.div`
     padding: 20px;
     display: grid;
 `;
-
-export const StyledParagraph = styled.p`
-    text-align: center;
-`;

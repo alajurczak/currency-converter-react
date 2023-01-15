@@ -1,8 +1,7 @@
 import Form from "./Form";
 import Container from "./Container";
 import CurrentDate from "./Date";
-import { StyledParagraph } from "./Container/styled";
-import { Fieldset, Legend } from "./Form/styled";
+import { Fieldset, Legend, StyledParagraph } from "./Form/styled";
 import { useCurrentRatesData } from "./useCurrentRatesData";
 
 const LoadingText = "Pobieram aktualne kursy z Narodowego Banku Polskiego...";
